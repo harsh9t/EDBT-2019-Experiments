@@ -1,0 +1,351 @@
+Query No.
+"SPARQL Default"
+
+C2
+"PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+select ?propertyTextual2  {
+
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productPropertyTextual2 ?propertyTextual2 .
+
+}"
+
+C1
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select  (count  (distinct (?pid)) as ?totalprods) where
+  { ?review bsbm:reviewFor ?product .
+    ?product rdfs:label ?pid.
+}"
+
+C3
+"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT distinct ?label WHERE {
+ <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  rdfs:label ?label .}"
+
+F2
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+select ?a ?propertyNumeric1 ?propertyNumeric2 where {
+
+?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> bsbm:Product .
+?a  bsbm:productPropertyNumeric1 ?propertyNumeric1 .
+?a  bsbm:productPropertyNumeric2 ?propertyNumeric2 . FILTER (?propertyNumeric1 = 1 && ?propertyNumeric2 > 100)
+}"
+
+F1
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select  ?product ?review ?rating1 where {
+
+?review bsbm:rating1 ?rating1.
+?review bsbm:reviewFor ?product.
+?review rev:reviewer <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/Reviewer86> .
+}"
+
+F3
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+select ?a  where {
+
+?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> bsbm:Product .
+?a  bsbm:productPropertyNumeric1 ?propertyNumeric1 . FILTER (?propertyNumeric1 = 1)
+}"
+
+L1
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT distinct ?rating1 WHERE {
+ ?review bsbm:reviewFor <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343> .
+ ?review bsbm:rating1 ?rating1 .
+        }
+LIMIT 2"
+
+L2
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+select ?a ?label where {
+
+?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> bsbm:Product .
+?a  rdfs:label ?label.
+} LIMIT 5"
+
+L3
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+select ?price ?webpage where {
+
+?a bsbm:price ?price.
+?a  bsbm:offerWebpage ?webpage.
+} LIMIT 5"
+
+G2
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?review ?rating1 where {
+?review bsbm:reviewFor <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer9/Product451> .
+?review bsbm:rating1 ?rating1 . } GROUP BY (?rating1)"
+
+G1
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?country (COUNT(DISTINCT ?reviewer) as ?total) where {
+
+?a rev:reviewer ?reviewer .
+?reviewer bsbm:country ?country . } GROUP BY (?country)"
+
+G3
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+select  ?propn4 (count(?propn4) as ?total) where {
+
+?a   bsbm:productPropertyNumeric2 ?propn4.
+} GROUP BY(?propn4)"
+
+Gc2
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?pid (COUNT (?review) as ?total)  where {
+?review bsbm:reviewFor ?pid .
+ } GROUP BY (?pid) LIMIT 10"
+
+Gc1
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+Select  ?country (COUNT (distinct ?vend) as ?total)  where {
+?vendor bsbm:vendor ?vend.
+?vend bsbm:country ?country
+ } GROUP BY (?country)"
+
+Gc3
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+Select ?rating3 (COUNT (?rating3) as ?total)  where {
+?product bsbm:rating3 ?rating3 .
+ } GROUP BY (?rating3)"
+
+O2
+"PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT distinct ?product ?label WHERE {
+ ?product rdfs:label ?label .
+ ?product a bsbm-inst:ProductType58 .
+        }
+ORDER BY ?product"
+
+O3
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+select ?price where {
+
+?a bsbm:price ?price.
+
+} ORDER BY (?price) LIMIT 1"
+
+O1
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+Select ?rating1  where {
+?product bsbm:rating1 ?rating1 .
+ } ORDER BY DESC(?rating1) LIMIT 1"
+
+U1
+"PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+select ?label where {
+
+   {
+      ?product a bsbm-inst:ProductType58 .
+      ?product rdfs:label ?label.
+   }
+
+UNION
+
+  {
+      ?product a bsbm-inst:ProductType102 .
+      ?product rdfs:label ?label.
+  }
+} LIMIT 10"
+
+U2
+"PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+select ?label ?propn1 where {
+
+   {
+      <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343> rdfs:label ?label .
+      <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343> bsbm:productPropertyNumeric1 ?propn1.
+
+
+   }
+
+UNION
+
+  {
+      <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product350> rdfs:label ?label .
+       <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product350> bsbm:productPropertyNumeric1 ?propn1.
+   }
+}"
+
+U3
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+Select distinct ?vend where
+{
+
+{ ?vendor bsbm:vendor ?vend . ?vend bsbm:country <http://downlode.org/rdf/iso-3166/countries#RU> . }
+
+UNION
+
+{ ?vendor bsbm:vendor ?vend . ?vend bsbm:country <http://downlode.org/rdf/iso-3166/countries#GB> . }
+
+}
+"
+
+U4
+"PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+select distinct ?product ?label ?propertyTextual  where {
+{
+  ?product rdfs:label ?label .
+  ?product rdf:type <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductType13> .
+  ?product bsbm:productFeature <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature20> .
+  ?product bsbm:productFeature <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature193> .
+  ?product bsbm:productPropertyTextual1 ?propertyTextual .
+  ?product bsbm:productPropertyNumeric1 ?p1 . FILTER (?p1 < 400) }
+UNION {
+  ?product rdfs:label ?label .
+  ?product rdf:type <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductType13> .
+  ?product bsbm:productFeature <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature20> .
+  ?product bsbm:productFeature <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/ProductFeature284> .
+  ?product bsbm:productPropertyTextual1 ?propertyTextual .
+  ?product bsbm:productPropertyNumeric2 ?p2 . FILTER ( ?p2> 600 )  }
+}"
+
+Op1
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+select  ?propertyTextual2 ?propertyTextual3 ?propertyNumeric2  {
+
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343> bsbm:productPropertyTextual2 ?propertyTextual2 .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productPropertyTextual3 ?propertyTextual3 .
+optional { <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product350>  bsbm:productPropertyNumeric2 ?propertyNumeric2 .}
+}"
+
+Op2
+"NULL"
+Op3
+"NULL"
+
+M1
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+Select ?reviewer (COUNT (?product) as ?total) where {
+?review bsbm:reviewFor ?product .
+?review rev:reviewer ?reviewer .} GROUP BY (?reviewer) ORDER BY DESC (?total) LIMIT 10"
+
+M2
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?product (COUNT (?review) as ?total) where {
+?review bsbm:reviewFor ?product . } GROUP BY (?product) ORDER BY DESC (?total) limit 10"
+
+M3
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?reviewer (COUNT (?rating1) as ?total)
+where {
+?review bsbm:reviewFor ?product .
+?review bsbm:rating1 ?rating1 .
+?review rev:reviewer ?reviewer .
+
+} GROUP BY (?reviewer) ORDER BY DESC (?total) limit 10"
+
+S1
+"PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+select ?label ?comment ?p ?f ?productFeature ?producer ?propertyTextual1 ?propertyTextual2 ?propertyTextual3 ?propertyNumeric1 ?propertyNumeric1  {
+
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  rdfs:label ?label .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  rdfs:comment ?comment .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:producer ?p .
+?p rdfs:label ?producer .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  dc:publisher ?p .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productFeature ?f .
+?f rdfs:label ?productFeature .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productPropertyTextual1 ?propertyTextual1 .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productPropertyTextual2 ?propertyTextual2 .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productPropertyTextual3 ?propertyTextual3 .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productPropertyNumeric1 ?propertyNumeric1 .
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  bsbm:productPropertyNumeric2 ?propertyNumeric2 .
+} LIMIT 1"
+
+S2
+"prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?rating1 ?rating2 ?rating3 ?rating4 where {
+                ?review rev:reviewer <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/Reviewer424> .
+                ?review bsbm:rating1 ?rating1.
+                ?review bsbm:rating2 ?rating2.
+                ?review bsbm:rating3 ?rating3.
+                ?review bsbm:rating4 ?rating4.
+} "
+
+S3
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select ?producer ?plabel ?comment ?phpage ?country ?price ?webpage ?validFrom ?validTo
+where {
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/Product10> bsbm:producer ?producer .
+?producer rdfs:label ?plabel .
+?producer rdfs:comment ?comment .
+?producer <http://xmlns.com/foaf/0.1/homepage> ?phpage .
+?producer bsbm:country ?country .
+?offer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> bsbm:Offer .
+?offer bsbm:offerWebpage ?webpage .
+?offer bsbm:price ?price .
+?offer bsbm:validFrom ?validFrom .
+?offer bsbm:validTo ?validTo .
+}"
+
+S4
+"PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+SELECT DISTINCT ?offer ?price ?date
+WHERE {
+        ?offer bsbm:product <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer8/Product343>  .
+        ?offer bsbm:vendor ?vendor .
+        ?offer dc:publisher ?vendor .
+        ?vendor bsbm:country <http://downlode.org/rdf/iso-3166/countries#US> .
+        ?offer bsbm:deliveryDays ?deliveryDays .
+        FILTER (?deliveryDays <= 4)
+        ?offer bsbm:price ?price .
+        ?offer bsbm:validTo ?date .
+}
+ORDER BY (?price)
+LIMIT 10"
