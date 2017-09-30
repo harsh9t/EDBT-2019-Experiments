@@ -1,0 +1,1 @@
+g.V().match( __.as('a').hasLabel('product'), __.as('a').values('name').as('b'), __.as('a').values('unitsInStock').as('c')).select('b','c').limit(5)

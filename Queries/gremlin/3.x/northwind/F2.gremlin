@@ -1,0 +1,1 @@
+g.V().match( __.as('a').values('name').as('b'), __.as('a').has('unitsInStock',0).values('unitsInStock').as('c')).select('b','c')

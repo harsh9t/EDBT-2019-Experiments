@@ -1,0 +1,1 @@
+g.V().match( __.as('a').hasLabel(""product""), __.as('a').values('name').as('b'), __.as('a').values('unitPrice').as('unitprice')).order().by(select('unitprice'), incr).by(select('b')).limit(5)

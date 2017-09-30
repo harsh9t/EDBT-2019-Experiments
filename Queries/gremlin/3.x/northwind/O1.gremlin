@@ -1,0 +1,1 @@
+g.V().match( __.as('a').values('name').as('b'), __.as('a').values('unitsInStock').as('unitprice')).order().by(select('unitprice'), decr).by(select('b')).limit(5)

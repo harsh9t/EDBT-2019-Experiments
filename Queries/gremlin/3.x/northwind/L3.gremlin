@@ -1,0 +1,1 @@
+g.V().match( __.as('a').values('name').as('productName'), __.as('a').has('unitsOnOrder',0).values('unitsOnOrder').as('unitsOnOrder')).select('productName','unitsOnOrder').limit(5)

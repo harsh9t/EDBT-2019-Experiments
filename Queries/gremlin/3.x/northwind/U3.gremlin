@@ -1,0 +1,1 @@
+U3	"g.V().union( match( __.as('x').has("customerId", "ALFKI").values('phone').as('a'), __.as('x').has("customerId", "ALFKI").values('name').as('name')), match( __.as('x').has("customerId", "ANTON").values('phone').as('a'), __.as('x').has("customerId", "ANTON").values('name').as('name'))).select('name','a')

@@ -1,0 +1,1 @@
+g.V().match( __.as('a').hasLabel('product').as('b'), __.as('a').values('name').as('productName'), __.as('a').has('unitPrice',between(5,10)).values('unitPrice').as('unitprice')).select('productName','unitprice')
