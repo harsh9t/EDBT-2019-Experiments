@@ -1,0 +1,33 @@
+Query No.	Gremlin Query (Groovy 2.x)
+C2	s.V().has("productID", 343).map()
+C1	s.V().has("type", "review").outE().inV().productID.dedup.count()
+C3	s.V().has("productID", 343).map("label_n")
+F2	s.V().has("type", "product").has("ProductPropertyNumeric_1", 1).filter{it.ProductPropertyNumeric_2>100}.map("productID")
+F1	s.V().has("type", "reviewer").has("reviewerID", 86).outE().inV().map()
+F3	s.V().has("type", "product").has("ProductPropertyNumeric_1", 1).productID
+L1	s.V().has("productID", 343).inE().outV().has("type", "review").map("Rating_1")[0..1]
+L2	s.V().has("type", "product").has("label_n")[0..4].map("productID", "label_n")
+L3	s.V().has("type", "offer")[0..4].map("price", "OfferWebPage")
+G2	s.V().has("type", "reviewer").has("reviewerID", 86).outE().inV().has("Rating_1").outE().inV().map("productID")
+G1	s.V().has("type", "reviewer").groupCount{it.country}.cap
+G3	s.V().has("type", "product").groupCount{it.ProductPropertyNumeric_4}.cap
+Gc2	s.V().has("type", "review").out().groupCount{it.productID}.cap
+Gc1	s.V().has("type", "vendor").groupCount{it.country}.cap
+Gc3
+O2	s.V().has("type", "product_type").has("productTypeID", 58).out().map("productID")
+O3	s.V().has("type", "offer").price.min()
+O1	s.V().has("type", "review").Rating_1.max()
+U1	s.V().has("type", "product_type").filter{it.productTypeID==58 || it.productTypeID == 102}.out()[0..9].label_n
+U2	 s.V().has("type", "product").filter{it.productID==343 || it.productID == 350}.map()
+U3	s.V().has("type", "vendor").filter{it.country=="RU" || it.country == "GB"}.map()
+U4
+Op1
+Op2
+Op3
+M1
+M2	s.V().has("type", "review").out().has("type", "product").groupCount{it.productID}.cap()
+M3	 s.V().has("type", "review").has("Rating_1").out().has("type", "product").groupCount{it.productID}.cap()
+S1	s.V().has("type", "product").has("productID", 343).as('a').both().map().as('b').select()
+S2	s.V().has("type", "reviewer").has("reviewerID", 424).as('a').out().map().as('b').select()
+S3	s.V().has("type", "product").has("productID", 343).as('a').both().filter{it.type == "offer" || it.type == "producer"}map().as('b').select()
+S4
