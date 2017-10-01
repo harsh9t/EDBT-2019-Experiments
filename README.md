@@ -21,7 +21,7 @@ We used scripts from the LITMUS Benchmark Suite [https://github.com/LITMUS-Bench
 python3 generator.py
 ```
 
-###Running the queries
+### Running the queries
 
 * For BSBM queries
 ```sh
