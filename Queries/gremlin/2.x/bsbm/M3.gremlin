@@ -1,0 +1,1 @@
+s.V().has("type", "review").has("Rating_1").out().has("type", "product").groupCount{it.productID}.cap()

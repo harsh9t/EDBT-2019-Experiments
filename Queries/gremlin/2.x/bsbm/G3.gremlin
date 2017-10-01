@@ -1,0 +1,1 @@
+s.V().has("type", "product").groupCount{it.ProductPropertyNumeric_4}.cap

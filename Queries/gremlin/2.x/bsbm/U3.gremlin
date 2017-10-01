@@ -1,0 +1,1 @@
+s.V().has("type", "vendor").filter{it.country=="RU" || it.country == "GB"}.map()

@@ -1,5 +1,5 @@
 Query No.	Gremlin Query (Groovy 2.X)
-C2	g.V().has("description").map("description")
+C2	s.V().has("description").map("description")
 C1	s.V().has("productName").map("productName")
 C3	s.V().has("categoryID").map("categoryName")
 F2	s.V().has("unitsInStock", 0).map("unitsInStock", "productName")

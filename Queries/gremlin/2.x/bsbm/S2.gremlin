@@ -1,0 +1,1 @@
+s.V().has("type", "reviewer").has("reviewerID", 424).as('a').out().map().as('b').select()

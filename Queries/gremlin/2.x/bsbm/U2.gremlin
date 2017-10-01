@@ -1,0 +1,1 @@
+s.V().has("type", "product").filter{it.productID==343 || it.productID == 350}.map()
