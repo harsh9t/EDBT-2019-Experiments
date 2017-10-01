@@ -1,7 +1,7 @@
 S3
 select ?b ?shipcity ?freight ?reqDate ?shipName ?postalCode ?shippedDate ?orderDate ?shipAddress
 
-{
+where {
 ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Customer> .
 ?a <http://www.w3.org/2000/01/rdf-schema#label> "ALFKI" .
 ?b <http://northwind.com/model/customer> ?a .
