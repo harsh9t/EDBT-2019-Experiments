@@ -1,0 +1,6 @@
+select (count(?a) as ?total )
+where {
+
+                ?a <http://northwind.com/model/categoryName> "Seafood".
+                ?a <http://northwind.com/model/unitPrice> ?unitPrice .
+} GROUP BY (?unitPrice)

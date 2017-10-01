@@ -1,0 +1,1 @@
+select distinct ?b ?c where { ?a  <http://northwind.com/model/categoryName> ?b . ?b <http://northwind.com/model/unitsInStock> ?c . FILTER (?c = 0)}

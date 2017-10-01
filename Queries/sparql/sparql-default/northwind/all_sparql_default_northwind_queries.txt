@@ -1,108 +1,108 @@
 Query No.	SPARQL Default
 
 C2
-"select distinct ?b ?c where { ?a  <http://northwind.com/model/categoryName> ?b . ?a <http://northwind.com/model/description> ?c .}"
+select distinct ?b ?c where { ?a  <http://northwind.com/model/categoryName> ?b . ?a <http://northwind.com/model/description> ?c .}
 
 C1
-"select ?b where {?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/categoryName> ?b .}"
+select ?b where {?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/categoryName> ?b .}
 
 C3
-"select distinct ?b where {?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Category> . ?a  <http://northwind.com/model/categoryName> ?b .}"
+select distinct ?b where {?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Category> . ?a  <http://northwind.com/model/categoryName> ?b .}
 
 F2
-"select distinct ?b ?c where { ?a  <http://northwind.com/model/categoryName> ?b . ?b <http://northwind.com/model/unitsInStock> ?c . FILTER (?c = 0)}"
+select distinct ?b ?c where { ?a  <http://northwind.com/model/categoryName> ?b . ?b <http://northwind.com/model/unitsInStock> ?c . FILTER (?c = 0)}
 
 F1
-"select ?productName ?unitPrice where {?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitPrice> ?unitPrice . FILTER(?unitPrice <= 10)}"
+select ?productName ?unitPrice where {?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitPrice> ?unitPrice . FILTER(?unitPrice <= 10)}
 
 F3
-"select ?productName ?unitPrice where {  ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> .  ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitPrice> ?unitPrice . FILTER( ?unitPrice >= 5 && ?unitPrice < 10) }"
+select ?productName ?unitPrice where {  ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> .  ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitPrice> ?unitPrice . FILTER( ?unitPrice >= 5 && ?unitPrice < 10) }
 
 F4
-"select ?productName ?unitsOnOrder where { ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder . FILTER(?unitsOnOrder != 0)}"
+select ?productName ?unitsOnOrder where { ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder . FILTER(?unitsOnOrder != 0)}
 
 L1
-"select ?b ?c where {  ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?b . ?a <http://northwind.com/model/unitsInStock> ?c .} LIMIT 5"
+select ?b ?c where {  ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?b . ?a <http://northwind.com/model/unitsInStock> ?c .} LIMIT 5
 
 L2
-"select ?b ?c where {   ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?b . ?a <http://northwind.com/model/unitPrice> ?c .} ORDER BY (?c) LIMIT 5"
+select ?b ?c where {   ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?b . ?a <http://northwind.com/model/unitPrice> ?c .} ORDER BY (?c) LIMIT 5
 
 L3
-"select ?productName ?unitsOnOrder where { ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder . FILTER(?unitsOnOrder = 0)} LIMIT 5"
+select ?productName ?unitsOnOrder where { ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder . FILTER(?unitsOnOrder = 0)} LIMIT 5
 
 G1
-"select ?unitsOnOrder where { ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?name . ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder .} GROUP BY (?unitsOnOrder)"
+select ?unitsOnOrder where { ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?name . ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder .} GROUP BY (?unitsOnOrder)
 
 G2
-"select ?unitPrice (COUNT(?unitPrice) as ?total)
+select ?unitPrice (COUNT(?unitPrice) as ?total)
 where {
                 ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product>.
                 ?a <http://northwind.com/model/productName> ?name .
                 ?a <http://northwind.com/model/unitPrice> ?unitPrice .
-} GROUP BY (?unitPrice)"
+} GROUP BY (?unitPrice)
 
 G3
-"select ?unitsInStock
+select ?unitsInStock
 where {
                 ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> .
                 ?a <http://northwind.com/model/productName> ?name .
                 ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
-} GROUP BY (?unitsInStock)"
+} GROUP BY (?unitsInStock)
 
 Gc1
-"select (count(?a) as ?total )
+select (count(?a) as ?total )
 where {
 
                 ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
-} GROUP BY (?unitsInStock)"
+} GROUP BY (?unitsInStock)
 
 Gc2
-"select (count(?a) as ?total )
+select (count(?a) as ?total )
 where {
 
-                ?a <http://northwind.com/model/categoryName> ""Seafood"".
+                ?a <http://northwind.com/model/categoryName> "Seafood".
                 ?a <http://northwind.com/model/unitPrice> ?unitPrice .
-} GROUP BY (?unitPrice)"
+} GROUP BY (?unitPrice)
 
 Gc3
-"select ?customer COUNT((?orderid) as ?count) where
+select ?customer COUNT((?orderid) as ?count) where
 { ?orderid <http://northwind.com/model/customer> ?customer .
-?orderid <http://northwind.com/model/freight> ?freight } LIMIT 5"
+?orderid <http://northwind.com/model/freight> ?freight } LIMIT 5
 
 Gc4
-"select (count(?a) as ?total )
+select (count(?a) as ?total )
 where {
 
-                ?a <http://northwind.com/model/categoryName> ""Beverages"".
+                ?a <http://northwind.com/model/categoryName> "Beverages".
                 ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
-} GROUP BY (?unitsInStock)"
+} GROUP BY (?unitsInStock)
 
 O2
-"select ?name ?unitPrice
+select ?name ?unitPrice
 where {
 
                 ?a <http://northwind.com/model/productName> ?name.
                 ?a <http://northwind.com/model/unitPrice> ?unitPrice .
-} ORDER BY DESC(?unitPrice) LIMIT 5"
+} ORDER BY DESC(?unitPrice) LIMIT 5
 
 O1
-"select ?name ?unitsInStock
+select ?name ?unitsInStock
 where {
 
                 ?a <http://northwind.com/model/productName> ?name.
                 ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
-} ORDER BY DESC(?unitsInStock) LIMIT 5"
+} ORDER BY DESC(?unitsInStock) LIMIT 5
 
 O3
-"select ?name ?unitsOnOrder
+select ?name ?unitsOnOrder
 where {
 
                 ?a <http://northwind.com/model/productName> ?name.
                 ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder .
-} ORDER BY DESC(?unitsOnOrder) LIMIT 5"
+} ORDER BY DESC(?unitsOnOrder) LIMIT 5
 
 U1
-"select ?name ?unitPrice
+select ?name ?unitPrice
   where {
                   {
                          ?a <http://northwind.com/model/productName> ?name.
@@ -114,10 +114,10 @@ U1
                           ?a <http://northwind.com/model/unitPrice> ?unitPrice .
                           FILTER(?unitPrice <7.0 && ?unitPrice > 4.0).
                   }
-  }"
+  }
 
 U2
-"select ?name ?unitsInStock
+select ?name ?unitsInStock
   where {
                   {
                           ?a <http://northwind.com/model/productName> ?name.
@@ -129,13 +129,13 @@ U2
                           ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
                           FILTER(?unitsInStock <20 && ?unitsInStock > 10).
                   }
-  }"
+  }
 
 U3
-"select ?fname ?lname ?phone where {
+select ?fname ?lname ?phone where {
 
 
-     ?x <http://northwind.com/model/customerID> ""ALFKI"".
+     ?x <http://northwind.com/model/customerID> "ALFKI".
      ?x  <http://northwind.com/model/firstName> ?fanme.
      ?x <http://northwind.com/model/phone> ?phone.
    }
@@ -143,11 +143,11 @@ U3
 UNION
 
   {
-     ?x <http://northwind.com/model/customerID> ""ANTON""  .
+     ?x <http://northwind.com/model/customerID> "ANTON"  .
       ?x  <http://northwind.com/model/firstName> ?fanme.
      ?x <http://northwind.com/model/phone> ?phone.
   }
-}"
+}
 
 Op1
 "NULL"
@@ -159,63 +159,63 @@ Op3
 "NULL"
 
 M1
-"select ?stock (count(?a) as ?total)
+select ?stock (count(?a) as ?total)
   where {
                             ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
-  } GROUP BY(?unitsInStock) ORDER BY (?unitsInStock) Limit 3"
+  } GROUP BY(?unitsInStock) ORDER BY (?unitsInStock) Limit 3
 
 M2
-"select ?name ?unitPrice
+select ?name ?unitPrice
 where {
                  ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product>.
                   ?a <http://northwind.com/model/productName> ?name.
                  ?a <http://northwind.com/model/unitPrice> ?unitPrice .
-}  ORDER BY (?unitPrice) LIMIT 5 OFFSET 5"
+}  ORDER BY (?unitPrice) LIMIT 5 OFFSET 5
 
 M3
-"select ?name ?unitsOnOrder
+select ?name ?unitsOnOrder
 where {
                 ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> .
                  ?a <http://northwind.com/model/productName> ?name.
                  ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder .
-}  ORDER BY DESC (?unitsOnOrder) LIMIT 10"
+}  ORDER BY DESC (?unitsOnOrder) LIMIT 10
 
 S1
-"select ?a ?dec ?name ?unitPrice ?stock ?discountinued ?unitsOnOrder
+select ?a ?dec ?name ?unitPrice ?stock ?discountinued ?unitsOnOrder
 where {
 
 ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> .
 ?a <http://northwind.com/model/category> ?c.
-?c <http://northwind.com/model/categoryName> ""Beverages"".
+?c <http://northwind.com/model/categoryName> "Beverages".
 ?c <http://northwind.com/model/description> ?dec.
 ?a <http://northwind.com/model/productName> ?name.
 ?a <http://northwind.com/model/unitPrice> ?unitPrice.
 ?a <http://northwind.com/model/unitsInStock> ?stock.
 ?a <http://northwind.com/model/discontinued> ?discontinued.
 ?a <http://northwind.com/model/unitsOnOrder> ?unitOnOrder.
-} Limit 1"
+} Limit 1
 
 S2
-"select ?a ?dec ?name ?unitPrice ?stock ?discountinued ?unitsOnOrder
+select ?a ?dec ?name ?unitPrice ?stock ?discountinued ?unitsOnOrder
 where {
 
 ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> .
 ?a <http://northwind.com/model/category> ?c.
-?c <http://northwind.com/model/categoryName> ""Seafood"".
+?c <http://northwind.com/model/categoryName> "Seafood".
 ?c <http://northwind.com/model/description> ?dec.
 ?a <http://northwind.com/model/productName> ?name.
 ?a <http://northwind.com/model/unitPrice> ?unitPrice.
 ?a <http://northwind.com/model/unitsInStock> ?stock.
 ?a <http://northwind.com/model/discontinued> ?discontinued.
 ?a <http://northwind.com/model/unitsOnOrder> ?unitOnOrder.
-} Limit 10"
+} Limit 10
 
 S3
-"select ?b ?shipcity ?freight ?reqDate ?shipName ?postalCode ?shippedDate ?orderDate ?shipAddress
+select ?b ?shipcity ?freight ?reqDate ?shipName ?postalCode ?shippedDate ?orderDate ?shipAddress
 
 {
 ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Customer> .
-?a <http://www.w3.org/2000/01/rdf-schema#label> ""ALFKI"" .
+?a <http://www.w3.org/2000/01/rdf-schema#label> "ALFKI" .
 ?b <http://northwind.com/model/customer> ?a .
 ?b <http://northwind.com/model/shipCity> ?shipcity .
 ?b <http://northwind.com/model/freight> ?freight .
@@ -225,15 +225,15 @@ S3
 ?b <http://northwind.com/model/shippedDate> ?shippedDate .
 ?b <http://northwind.com/model/orderDate> ?orderDate .
 ?b <http://northwind.com/model/shipAddress> ?shipAddress .
-}"
+}
 
 Gc5
-"select distinct ?customer count(distinct ?order)
+select distinct ?customer count(distinct ?order)
 {
    ?customer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Customer>.
    ?order <http://northwind.com/model/customer> ?customer .
 } group by (?customer)"
-F4	"select ?name ?unitPrice where {
+F4	select ?name ?unitPrice where {
 ?a <http://northwind.com/model/productName> ?name.
 ?a <http://northwind.com/model/unitPrice> ?unitPrice . FILTER(?unitPrice <7.0 && ?unitPrice > 4.0).
-}"
+}

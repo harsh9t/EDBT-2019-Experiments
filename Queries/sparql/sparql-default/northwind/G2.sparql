@@ -1,0 +1,6 @@
+select ?unitPrice (COUNT(?unitPrice) as ?total)
+where {
+                ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product>.
+                ?a <http://northwind.com/model/productName> ?name .
+                ?a <http://northwind.com/model/unitPrice> ?unitPrice .
+} GROUP BY (?unitPrice)

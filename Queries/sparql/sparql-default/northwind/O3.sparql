@@ -1,0 +1,6 @@
+select ?name ?unitsOnOrder
+where {
+
+                ?a <http://northwind.com/model/productName> ?name.
+                ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder .
+} ORDER BY DESC(?unitsOnOrder) LIMIT 5

@@ -1,0 +1,1 @@
+select ?b ?c where {   ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Product> . ?a  <http://northwind.com/model/productName> ?b . ?a <http://northwind.com/model/unitPrice> ?c .} ORDER BY (?c) LIMIT 5

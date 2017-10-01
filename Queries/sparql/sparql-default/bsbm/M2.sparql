@@ -1,0 +1,5 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?product (COUNT (?review) as ?total) where {
+?review bsbm:reviewFor ?product . } GROUP BY (?product) ORDER BY DESC (?total) limit 10

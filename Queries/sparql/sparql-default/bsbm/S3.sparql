@@ -1,0 +1,17 @@
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select ?producer ?plabel ?comment ?phpage ?country ?price ?webpage ?validFrom ?validTo
+where {
+<http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromProducer1/Product10> bsbm:producer ?producer .
+?producer rdfs:label ?plabel .
+?producer rdfs:comment ?comment .
+?producer <http://xmlns.com/foaf/0.1/homepage> ?phpage .
+?producer bsbm:country ?country .
+?offer <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> bsbm:Offer .
+?offer bsbm:offerWebpage ?webpage .
+?offer bsbm:price ?price .
+?offer bsbm:validFrom ?validFrom .
+?offer bsbm:validTo ?validTo .
+}

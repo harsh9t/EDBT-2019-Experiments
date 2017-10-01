@@ -1,0 +1,1 @@
+select ?productName ?unitsOnOrder where { ?a  <http://northwind.com/model/productName> ?productName . ?a <http://northwind.com/model/unitsOnOrder> ?unitsOnOrder . FILTER(?unitsOnOrder = 0)} LIMIT 5

@@ -1,0 +1,9 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select  ?product ?review ?rating1 where {
+
+?review bsbm:rating1 ?rating1.
+?review bsbm:reviewFor ?product.
+?review rev:reviewer <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/Reviewer86> .
+}

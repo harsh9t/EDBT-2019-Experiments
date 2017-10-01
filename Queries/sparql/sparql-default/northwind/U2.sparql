@@ -1,0 +1,13 @@
+select ?name ?unitsInStock
+  where {
+                  {
+                          ?a <http://northwind.com/model/productName> ?name.
+                          ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
+                          FILTER(?unitsInStock <10 ).
+                  } UNION
+                  {
+                          ?a <http://northwind.com/model/productName> ?name.
+                          ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
+                          FILTER(?unitsInStock <20 && ?unitsInStock > 10).
+                  }
+  }

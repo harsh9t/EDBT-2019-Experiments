@@ -1,0 +1,7 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select ?country (COUNT(DISTINCT ?reviewer) as ?total) where {
+
+?a rev:reviewer ?reviewer .
+?reviewer bsbm:country ?country . } GROUP BY (?country)

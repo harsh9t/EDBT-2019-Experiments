@@ -1,0 +1,7 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+prefix rev: <http://purl.org/stuff/rev#>
+
+Select  (count  (distinct (?pid)) as ?totalprods) where
+  { ?review bsbm:reviewFor ?product .
+    ?product rdfs:label ?pid.
+}

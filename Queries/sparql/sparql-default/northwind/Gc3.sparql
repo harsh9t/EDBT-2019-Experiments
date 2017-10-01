@@ -1,0 +1,3 @@
+select ?customer COUNT((?orderid) as ?count) where
+{ ?orderid <http://northwind.com/model/customer> ?customer .
+?orderid <http://northwind.com/model/freight> ?freight } LIMIT 5
