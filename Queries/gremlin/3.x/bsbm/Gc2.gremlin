@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has("type","review").as('review'), __.as('a').out().as('prod'), __.as('prod').values("productID").as('pid')).select('pid').limit(10).groupCount()

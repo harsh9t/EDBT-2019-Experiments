@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has("reviewerID",86), __.as('a').out().as('review'), __.as('review').values("Rating_1").as('Rating_1')).select('a','review','Rating_1')

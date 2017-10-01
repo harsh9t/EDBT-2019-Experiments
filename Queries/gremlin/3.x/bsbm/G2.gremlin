@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has('reviewerID',86), __.as('a').out().as('review'), __.as('review').values('Rating_1').as('rating1'), __.as('review').out().as('product'), __.as('product').values('productID').as('pid')).select('pid').group().by()

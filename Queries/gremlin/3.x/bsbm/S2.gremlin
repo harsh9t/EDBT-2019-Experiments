@@ -1,0 +1,1 @@
+g.V().match(__.as('a').has("reviewerID",424).as('b'), __.as('b').out().as('c')).select('c').valueMap('Rating_1','Rating_2','Rating_3','Rating_4').limit(5)

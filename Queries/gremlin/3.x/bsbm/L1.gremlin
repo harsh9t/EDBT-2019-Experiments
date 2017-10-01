@@ -1,0 +1,1 @@
+g.V().match(__.as('a').has('productID',343).as('prod'), __.as('a').in().values('Rating_1').as('b')).select('b').order().by(decr).limit(2)

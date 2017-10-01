@@ -1,0 +1,1 @@
+g.V().match( __.as('a').values("price").as('price'), __.as('a').values("OfferWebPage").as('wpage')).select("price","wpage").range(0,5)

@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has("productID",343).as('b'), __.as('b').values("label_n").as('label')).select('label')

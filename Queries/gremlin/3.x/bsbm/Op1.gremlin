@@ -1,0 +1,1 @@
+g.V().as('c').has('productID',343).values('ProductPropertyTextual_1','ProductPropertyTextual_2').as('a').optional(__.has('productID',350).values('ProductPropertyNumeric_1').as('b')).select('a','b')

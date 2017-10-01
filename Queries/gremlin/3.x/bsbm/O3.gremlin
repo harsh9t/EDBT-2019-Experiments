@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has("type","offer").as('offer'), __.as('offer').values("price").as('price')).select('price').order().by(incr).limit(1)

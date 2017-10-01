@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has("type","product"), __.as('a').values('productID').as('b'), __.as('a').values("ProductPropertyNumeric_1").is(eq(1)).as('ProductPropertyNumeric_1'), __.as('a').values("ProductPropertyNumeric_2").is(gt(100)).as('ProductPropertyNumeric_2')).select("b","ProductPropertyNumeric_1","ProductPropertyNumeric_2")

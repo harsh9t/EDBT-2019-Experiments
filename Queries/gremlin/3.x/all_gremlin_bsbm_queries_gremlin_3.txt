@@ -1,0 +1,120 @@
+Query No.
+Gremlin Query (Groovy 3.x)
+
+C2
+"g.V().match( __.as('a').has('productID',343).values('ProductPropertyTextual_1').as('b')).select('b')
+\\perf
+clock(10) {g.V().match( __.as('a').has('productID',343).values('ProductPropertyTextual_1').as('b')).select('b').iterate()}"
+
+C1
+"g.V().match( __.as('a').has("type","review").as('b'), __.as('b').out().has("type","product").as('c')).select('c').dedup().count()
+\\perf
+clock(10) {g.V().match( __.as('a').has("type","review").as('b'), __.as('b').out().has("type","product").as('c')).select('c').dedup().count().iterate()}"
+
+C3
+"g.V().match( __.as('a').has("productID",343).as('b'), __.as('b').values("label_n").as('label')).select('label')
+\\perf
+clock(10) {g.V().match( __.as('a').has("productID",343).as('b'), __.as('b').values("label_n").as('label')).select('label').iterate()}"
+
+F2
+"g.V().has("type","product").has("ProductPropertyNumeric_1",1).has("ProductPropertyNumeric_2",gt(100)).values("productID","ProductPropertyNumeric_1","ProductPropertyNumeric_2")
+g.V().match( __.as('a').has("type","product"), __.as('a').values('productID').as('b'), __.as('a').values("ProductPropertyNumeric_1").is(eq(1)).as('ProductPropertyNumeric_1'), __.as('a').values("ProductPropertyNumeric_2").is(gt(100)).as('ProductPropertyNumeric_2')).select("b","ProductPropertyNumeric_1","ProductPropertyNumeric_2")
+
+
+F1
+"g.V().has("reviewerID",86).out().has("Rating_1").valueMap("Rating_1")
+g.V().match( __.as('a').has("reviewerID",86), __.as('a').out().as('review'), __.as('review').values("Rating_1").as('Rating_1')).select('a','review','Rating_1')"
+
+F3
+"g.V().has("type","product").has("ProductPropertyNumeric_1",1).values("productID")
+g.V().match( __.as('a').has("type","product").as('b'), __.as('a').has("ProductPropertyNumeric_1",1).as('c'), __.as('a').values("productID").as('pid')).select('pid')"
+
+L1
+g.V().match(__.as('a').has('productID',343).as('prod'), __.as('a').in().values('Rating_1').as('b')).select('b').order().by(decr).limit(2)
+
+L2
+"g.V().has("productID").has("label_n").valueMap("productID","label_n").range(0,5)
+g.V().match(  __.as('a').values("productID").as('pid'), __.as('a').values("label_n").as('label_n')).select("pid","label_n").range(0,5)"
+
+L3
+"g.V().has("price").has("OfferWebPage").valueMap("price","OfferWebPage").range(0,5)
+g.V().match( __.as('a').values("price").as('price'), __.as('a').values("OfferWebPage").as('wpage')).select("price","wpage").range(0,5)
+
+G2
+"g.V().has("reviewerID",86).out().has("Rating_1").out().values("productID").group().by()
+g.V().match( __.as('a').has('reviewerID',86), __.as('a').out().as('review'), __.as('review').values('Rating_1').as('rating1'), __.as('review').out().as('product'), __.as('product').values('productID').as('pid')).select('pid').group().by()
+
+G1
+" g.V().has("type","reviewer").values("country").groupCount()
+g.V().match( __.as('a').has("type","reviewer"), __.as('a').values("country").as('country')).select('country').groupCount()
+
+G3
+"g.V().values("ProductPropertyNumeric_4").groupCount()
+g.V()match( __.as('a').values("ProductPropertyNumeric_4").as('ProductPropertyNumeric_4')).select('ProductPropertyNumeric_4').groupCount()
+
+Gc2
+"g.V().has("type","review").out().values("productID").limit(10).groupCount()
+g.V().match( __.as('a').has("type","review").as('review'), __.as('a').out().as('prod'), __.as('prod').values("productID").as('pid')).select('pid').limit(10).groupCount()
+
+Gc1
+"g.V().has("type","vendor").values("country").groupCount()
+g.V().match( __.as('a').has("type","vendor"), __.as('a').values("country").as('country')).select('country').groupCount()"
+
+Gc3
+"g.V().has("type","review").values("Rating_3").groupCount()
+g.V().match( __.as('a').has("type","review").as('review'), __.as('review').values("Rating_3").as('rating3')).select('rating3').groupCount()
+
+O2
+g.V().match( __.as('a').has("productTypeID",58), __.as('a').out().as('prod'), __.as('prod').values("productID").as('pid'), __.as('prod').values("label_n").as('label_n')).order().by(select('pid'), incr).by(select('label_n')).limit(5)
+
+O3
+g.V().has("type","offer").has("price").values("price").order().by(incr).limit(1)
+g.V().match( __.as('a').has("type","offer").as('offer'), __.as('offer').values("price").as('price')).select('price').order().by(incr).limit(1)
+
+O1
+g.V().has("Rating_1").values("Rating_1").order().by(decr).limit(1)
+g.V().match( __.as('a').values("Rating_1").as('rating1')).select('rating1').order().by(decr).limit(1)
+
+U1
+g.V().union(match(__.as('a').has("productTypeID",58),__.as('a').out().values("label_n").as("label_n")),match(__.as('a').has("productTypeID",102),__.as('a').out().values("label_n").as("label_n"))).select("label_n").limit(10)
+
+U2
+g.V().union(match(__.as('a').has("productID",343).as('b'),__.as('b').values("label_n").as("label_n"),__.as('b').values("ProductPropertyNumeric_1").as('propertyNumeric1')),match(__.as('a').has("productID",350).as('b'),__.as('b').values("label_n").as("label_n"),__.as('b').values("ProductPropertyNumeric_1").as('propertyNumeric1'))).select("label_n","propertyNumeric1").limit(10)
+
+U3
+g.V().union(match(__.as('a').has("type","vendor").as('b'),__.as('b').has("country","RU")),match(__.as('a').has("type","vendor").as('b'),__.as('b').has("country","GB"))).select('b')
+
+U4
+g.V().union( match( __.as('a').values('productTypeID').is(eq(13)), __.as('a').values('label_n').as('plabel'), __.as('a').out().as('prod'), __.as('prod').values('productID').as('pid'), __.as('prod').values('label_n').as('label'), __.as('prod').values('ProductPropertyTextual_1').as('propt1'), __.as('prod').values('ProductPropertyNumeric_1').is(gt(211)).as('propn1'), __.as('prod').values('comment').as('comment')), match( __.as('a').values('productTypeID').is(eq(102)), __.as('a').values('label_n').as('plabel'), __.as('a').out().as('prod'), __.as('prod').values('productID').as('pid'), __.as('prod').values('label_n').as('label'), __.as('prod').values('ProductPropertyTextual_1').as('propt1'), __.as('prod').values('ProductPropertyNumeric_2').is(gt(600)).as('propn1'), __.as('prod').values('comment').as('comment'))).select('a','plabel','pid','label','propt1', 'propn1','comment').limit(10)
+Op1	"g.V().or( __.has('productID',343).values('ProductPropertyTextual_1','ProductPropertyTextual_2'), __.has('productID',350).values('ProductPropertyNumeric_1')).values("ProductPropertyTextual_1", "ProductPropertyTextual_2", "ProductPropertyNumeric_1")
+
+Op1
+g.V().as('c').has('productID',343).values('ProductPropertyTextual_1','ProductPropertyTextual_2').as('a').optional(__.has('productID',350).values('ProductPropertyNumeric_1').as('b')).select('a','b')
+
+Op2
+
+Op3
+
+M1
+"g.V().has("type","product").in().has("type","review").in().values("reviewerID").groupCount().order(local).by(values, decr).limit(local,10)
+g.V().match( __.as('a').has("type","product"), __.as('a').in().as('prod'), __.as('prod').has("type","review"), __.as('prod').in().as('revs'), __.as('revs').values("reviewerID").as('revID')).select('revID').groupCount().order(local).by(values, decr).limit(local, 10)
+
+M2
+"g.V().has("type","review").out().has("type","product").values("productID").groupCount().order(local).by(values, decr).limit(local,10)
+g.V().match( __.as('a').has("type","review"), __.as('a').out().as('prod'), __.as('prod').has("type","product"), __.as('prod').values('productID').as('pid')).select('pid').groupCount().order(local).by(values, decr).limit(local, 10)
+
+M3
+"g.V().has("type","reviewer").out().has("type","review").values("Rating_1").groupCount().order(local).by(values, decr).limit(local,10)
+g.V().match( __.as('a').has("type","reviewer"), __.as('a').out().as('rev'), __.as('rev').has("type","review"), __.as('rev').values("Rating_1").as('rating1')).select('rating1').groupCount().order(local).by(values, decr).limit(local,10)
+
+S1
+g.V().match( __.as('a').has("productID",343).as('b').valueMap().as('c'),__.as('b').out().values('label_n').as('label'),__.as('b').in().has('homepage','http://www.Producer8.com/').values('label_n').as('label_prod')).select('c','label','label_prod').limit(1)
+
+S2
+"g.V().match(__.as('a').has("reviewerID",424).as('b'), __.as('b').out().as('c'), __.as('c').values('Rating_1').as('rating1'), __.as('c').values('Rating_2').as('rating2'), __.as('c').values('Rating_3').as('rating3'), __.as('c').values('Rating_4').as('rating4')).select('rating1','rating2','rating3','rating4').limit(5)
+OR
+g.V().match(__.as('a').has("reviewerID",424).as('b'), __.as('b').out().as('c')).select('c').valueMap('Rating_1','Rating_2','Rating_3','Rating_4').limit(5)
+
+S3	g.V().match(__.as('a').has("type","producer").as('b'),__.as('b').values('label_n').as('label_n'),__.as('b').values('comment').as('comment'),__.as('b').values('country').as('country'),__.as('b').values('homepage').as('homepage'),__.as('b').out().has("productID",343).as('c'),__.as('c').out().has("type","offer").as('d').values('price').as('price'),__.as('c').out().has("type","offer").values('OfferWebPage').as('OfferWebPage')).select('b','label_n','comment','country','homepage','c','d','price','OfferWebPage').limit(5)
+
+S4

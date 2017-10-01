@@ -1,0 +1,1 @@
+g.V()match( __.as('a').values("ProductPropertyNumeric_4").as('ProductPropertyNumeric_4')).select('ProductPropertyNumeric_4').groupCount()

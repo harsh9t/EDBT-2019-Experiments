@@ -1,0 +1,1 @@
+g.V().match( __.as('a').values("Rating_1").as('rating1')).select('rating1').order().by(decr).limit(1)

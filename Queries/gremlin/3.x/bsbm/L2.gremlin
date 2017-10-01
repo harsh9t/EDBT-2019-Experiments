@@ -1,0 +1,1 @@
+g.V().match(  __.as('a').values("productID").as('pid'), __.as('a').values("label_n").as('label_n')).select("pid","label_n").range(0,5)

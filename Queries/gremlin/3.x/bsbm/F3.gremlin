@@ -1,0 +1,1 @@
+ g.V().match( __.as('a').has("type","product").as('b'), __.as('a').has("ProductPropertyNumeric_1",1).as('c'), __.as('a').values("productID").as('pid')).select('pid')"
