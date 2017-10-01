@@ -1,0 +1,1 @@
+s.V().has("categoryName","Seafood").inE().outV().groupCount{it.unitPrice}.cap

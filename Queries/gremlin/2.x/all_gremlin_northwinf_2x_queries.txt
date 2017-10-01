@@ -1,0 +1,35 @@
+Query No.	Gremlin Query (Groovy 2.X)
+C2	g.V().has("description").map("description")
+C1	s.V().has("productName").map("productName")
+C3	s.V().has("categoryID").map("categoryName")
+F2	s.V().has("unitsInStock", 0).map("unitsInStock", "productName")
+F1	s.V().has("productName").filter{ it.unitPrice <= 10.00}.map("productName")
+F3	s.V().has("productName").filter{ it.unitPrice>5 && it.unitPrice<10}.map("productName")
+F4	s.V().has("labelV", "product").filter{it.unitsInStock !=0}.map()
+L1	s.V().has("productName")[0..4].map("unitsInStock", "productName")
+L2	s.V().has("productID").order{it.a.unitPrice <=> it.b.unitPrice}[0..5].map("productName", "unitPrice")
+L3	s.V().has("unitsOnOrder",0)[0..4].map("productName", "unitsOnOrder")
+G1	s.V().has("productName").groupBy{it.unitsOnOrder}{it.unitsOnOrder}.cap
+G2	s.V().has("labelV", "product").groupCount{it.unitPrice}.cap
+G3	s.V().has("productName").groupBy{it.unitsInStock}{it.unitsInStock}.cap
+Gc1	s.V().has("productName").groupCount{it.unitsInStock}.cap
+Gc2	s.V().has("categoryName","Seafood").inE().outV().groupCount{it.unitPrice}.cap
+Gc3	s.V().has("labelV", "order").outE().has("labelE", "orderedBy").inV().groupCount{it.customerID}.cap
+Gc4	s.V().has("categoryName", "Beverages").inE().outV().groupCount{it.unitsInStock}.cap
+O2	s.V().has("labelV", "product").order{it.b.unitPrice <=> it.a.unitPrice}[0..4].map("productName", "unitPrice")
+O1	s.V().has("labelV", "product").order{it.b.unitsInStock <=> it.a.unitsInStock}[0..4].map("productName", "unitsInStock")
+O3	s.V().has("labelV", "product").order{it.b.unitsOnOrder <=> it.a.unitsOnOrder}[0..4].map("productName", "unitsOnOrder")
+U1	s.V().has("labelV", "product").filter{it.unitsPrice<4 || (it.unitPrice>4 && it.unitPrice<7)}.map()
+U2	s.V().has("labelV", "product").filter{it.unitsInStock<10 || (it.unitsInStock>10 && it.unitsInStock<20)}.map()
+U3	s.V().has("labelV", "customer").filter{it.customerID=="ALFKI" || it.customerID=="ANTON"}.map("contactName", "phone")
+Op1
+Op2
+Op3
+M1	s.V().has("labelV", "product").groupCount{it.unitsInStock}.cap
+M2	s.V().has("labelV", "product").order{it.a.unitPrice <=> it.b.unitPrice}[5..9].map("productName", "unitPrice")
+M3	s.V().has("labelV", "product").order{it.b.unitsOnOrder <=> it.a.unitsOnOrder}[0..9].map("productName", "unitsOnOrder")
+S1	s.V().has("labelV", "category").has("categoryName", "Beverages").in()[0].as('a').in().map().as('b').select()
+S2	s.V().has("labelV", "order").as('a').out().has("labelV", "product").as('b').out().has("categoryName", "Beverages").select()
+S3	s.V().has("labelV", "customer").has("customerID", "ALFKI").inE().outV().map()
+Gc5	s.V().has("labelV", "customer").as('a').in().has("labelV", "order").as('b').select()
+F4	s.V().has("labelV", "product").filter{it.unitPrice>=4.0f && it.unitPrice<7.0f}.map()

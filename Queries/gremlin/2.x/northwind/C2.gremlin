@@ -1,0 +1,1 @@
+g.V().has("description").map("description")

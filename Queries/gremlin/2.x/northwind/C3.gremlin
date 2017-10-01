@@ -1,0 +1,1 @@
+s.V().has("categoryID").map("categoryName")

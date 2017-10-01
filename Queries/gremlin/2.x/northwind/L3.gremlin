@@ -1,0 +1,1 @@
+s.V().has("unitsOnOrder",0)[0..4].map("productName", "unitsOnOrder")

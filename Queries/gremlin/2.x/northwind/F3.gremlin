@@ -1,0 +1,1 @@
+s.V().has("productName").filter{ it.unitPrice>5 && it.unitPrice<10}.map("productName")
