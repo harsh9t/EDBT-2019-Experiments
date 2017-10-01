@@ -61,15 +61,15 @@ g.V().match( __.as('a').hasLabel('product'), __.as('a').values('name').as('b'), 
 \\perf
 clock(10) {g.V().match( __.as('a').hasLabel('product'), __.as('a').values('name').as('b'), __.as('a').values('unitsInStock').as('c')).select('b','c').limit(5).iterate()}"
 
-L2	"g.V().hasLabel(""product"").order().by(""unitPrice"", incr).valueMap(""name"", ""unitPrice"").limit(5)
+L2	"g.V().hasLabel("product").order().by("unitPrice", incr).valueMap("name", "unitPrice").limit(5)
 
 OR
 
-g.V().match( __.as('a').hasLabel(""product""), __.as('a').values('name').as('b'), __.as('a').values('unitPrice').as('unitprice')).order().by(select('unitprice'), incr).by(select('b')).limit(5)
+g.V().match( __.as('a').hasLabel("product"), __.as('a').values('name').as('b'), __.as('a').values('unitPrice').as('unitprice')).order().by(select('unitprice'), incr).by(select('b')).limit(5)
 
 \\perf
 
-clock(10) {g.V().match( __.as('a').hasLabel(""product""), __.as('a').values('name').as('b'), __.as('a').values('unitPrice').as('unitprice')).order().by(select('unitprice'), incr).by(select('b')).limit(5).iterate()}"
+clock(10) {g.V().match( __.as('a').hasLabel("product"), __.as('a').values('name').as('b'), __.as('a').values('unitPrice').as('unitprice')).order().by(select('unitprice'), incr).by(select('b')).limit(5).iterate()}"
 
 
 L3	"g.V().match( __.as('a').has('unitsOnOrder',0).as('b')).valueMap('name','unitsOnOrder').limit(5)
@@ -134,10 +134,10 @@ Gc2	"g.V().match( __.as('a').out('inCategory').as('c'), __.as('c').has('name','S
 \\perf
 clock(10) {g.V().match( __.as('a').out('inCategory').as('c'), __.as('c').has('name','Seafood'), __.as('a').values('unitPrice').as('stock')).select('stock').groupCount().iterate()}"
 
-Gc3	"g.V().match( __.as(""c"").hasLabel(""customer""), __.as(""c"").values(""customerId"").as(""customerId""),__.as(""c"").out(""ordered"").count().as(""orders"")).select(""customerId"", ""orders"").limit(5)
+Gc3	"g.V().match( __.as("c").hasLabel("customer"), __.as("c").values("customerId").as("customerId"),__.as("c").out("ordered").count().as("orders")).select("customerId", "orders").limit(5)
 
 \\perf
-clock(10) {g.V().match( __.as(""c"").hasLabel(""customer""), __.as(""c"").values(""customerId"").as(""customerId""),__.as(""c"").out(""ordered"").count().as(""orders"")).select(""customerId"", ""orders"").limit(5).iterate()}"
+clock(10) {g.V().match( __.as("c").hasLabel("customer"), __.as("c").values("customerId").as("customerId"),__.as("c").out("ordered").count().as("orders")).select("customerId", "orders").limit(5).iterate()}"
 
 Gc4	"g.V().match( __.as('a').out('inCategory').as('c'), __.as('c').has('name','Beverages'), __.as('a').values('unitsInStock').as('stock')).select('stock').groupCount()
 
@@ -170,10 +170,10 @@ U2	"g.V().union( match( __.as('a').values('name').as('name'), __.as('a').values(
 \\perf
 clock(10) {g.V().union( match( __.as('a').values('name').as('name'), __.as('a').values('unitsInStock').is(lt(10)).as('unitsInStock')), match( __.as('a').values('name').as('name'), __.as('a').values('unitsInStock').is(between(10,20)).as('unitsInStock'))).select('name','unitsInStock').iterate()}"
 
-U3	"g.V().union( match( __.as('x').has(""customerId"", ""ALFKI"").values('phone').as('a'), __.as('x').has(""customerId"", ""ALFKI"").values('name').as('name')), match( __.as('x').has(""customerId"", ""ANTON"").values('phone').as('a'), __.as('x').has(""customerId"", ""ANTON"").values('name').as('name'))).select('name','a')
+U3	"g.V().union( match( __.as('x').has("customerId", "ALFKI").values('phone').as('a'), __.as('x').has("customerId", "ALFKI").values('name').as('name')), match( __.as('x').has("customerId", "ANTON").values('phone').as('a'), __.as('x').has("customerId", "ANTON").values('name').as('name'))).select('name','a')
 
 \\perf
-clock(10) {g.V().union( match( __.as('x').has(""customerId"", ""ALFKI"").values('phone').as('a'), __.as('x').has(""customerId"", ""ALFKI"").values('name').as('name')), match( __.as('x').has(""customerId"", ""ANTON"").values('phone').as('a'), __.as('x').has(""customerId"", ""ANTON"").values('name').as('name'))).select('name','a').iterate()}"
+clock(10) {g.V().union( match( __.as('x').has("customerId", "ALFKI").values('phone').as('a'), __.as('x').has("customerId", "ALFKI").values('name').as('name')), match( __.as('x').has("customerId", "ANTON").values('phone').as('a'), __.as('x').has("customerId", "ANTON").values('name').as('name'))).select('name','a').iterate()}"
 
 Op1
 
@@ -187,7 +187,7 @@ M1	"g.V().match( __.as('a').out('inCategory').as('c'), __.as('a').values('name')
 \\perf
 clock(10) {g.V().match( __.as('a').out('inCategory').as('c'), __.as('a').values('name').as('b'), __.as('a').values('unitsInStock').as('c')).select('c').groupCount().order().by(incr).limit(3).iterate()}"
 
-M2	"g.V().hasLabel(""product"").order().by(""unitPrice"", incr).range(5, 10).valueMap(""name"", ""unitPrice"")
+M2	"g.V().hasLabel("product").order().by("unitPrice", incr).range(5, 10).valueMap("name", "unitPrice")
 
 OR
 
@@ -212,18 +212,18 @@ S2	"g.V().match( __.as('a').hasLabel('product'), __.as('a').out('inCategory').as
 \\perf
 clock(10) {g.V().match( __.as('a').hasLabel('product'), __.as('a').out('inCategory').as('c'), __.as('c').has('name','Seafood'), __.as('c').values('description').as('dec'), __.as('a').values('name').as('b'), __.as('a').values('unitPrice').as('unitprice'), __.as('a').values('unitsInStock').as('stock'), __.as('a').values('discontinued').as('disco'), __.as('a').values('unitsOnOrder').as('uoa')).select('a','b','c','dec','unitprice','stock','disco','uoa').limit(10).iterate()}"
 
-S3	"g.V().has(""customerId"", ""ALFKI"").out('ordered').valueMap()
+S3	"g.V().has("customerId", "ALFKI").out('ordered').valueMap()
 
 OR
 
- g.V().match( __.as('a').hasLabel('customer'), __.as('a').has(""customerId"", ""ALFKI""), __.as('a').out('ordered').as('b'), __.as('b').values('shipCity').as('shipcity'), __.as('b').values('freight').as('freight'), __.as('b').values('requiredDate').as('reqDate'), __.as('b').values('shipName').as('shipName'), __.as('b').values('shipPostalCode').as('postalCode'), __.as('b').values('shippedDate').as('shipDate'), __.as('b').values('orderDate').as('orderDate'), __.as('b').values('shipAddress').as('shipAddress')).select('b','shipcity','freight','reqDate','shipName','postalCode','shipDate','orderDate','shipAddress')
+ g.V().match( __.as('a').hasLabel('customer'), __.as('a').has("customerId", "ALFKI"), __.as('a').out('ordered').as('b'), __.as('b').values('shipCity').as('shipcity'), __.as('b').values('freight').as('freight'), __.as('b').values('requiredDate').as('reqDate'), __.as('b').values('shipName').as('shipName'), __.as('b').values('shipPostalCode').as('postalCode'), __.as('b').values('shippedDate').as('shipDate'), __.as('b').values('orderDate').as('orderDate'), __.as('b').values('shipAddress').as('shipAddress')).select('b','shipcity','freight','reqDate','shipName','postalCode','shipDate','orderDate','shipAddress')
 
 OR
 
- g.V().match( __.as('a').hasLabel('customer'), __.as('a').has(""customerId"", ""ALFKI""), __.as('a').out('ordered').as('b')).select('b').valueMap()
+ g.V().match( __.as('a').hasLabel('customer'), __.as('a').has("customerId", "ALFKI"), __.as('a').out('ordered').as('b')).select('b').valueMap()
 
 \\perf
-clock(10) { g.V().match( __.as('a').hasLabel('customer'), __.as('a').has(""customerId"", ""ALFKI""), __.as('a').out('ordered').as('b'), __.as('b').values('shipCity').as('shipcity'), __.as('b').values('freight').as('freight'), __.as('b').values('requiredDate').as('reqDate'), __.as('b').values('shipName').as('shipName'), __.as('b').values('shipPostalCode').as('postalCode'), __.as('b').values('shippedDate').as('shipDate'), __.as('b').values('orderDate').as('orderDate'), __.as('b').values('shipAddress').as('shipAddress')).select('b','shipcity','freight','reqDate','shipName','postalCode','shipDate','orderDate','shipAddress').iterate()}"
+clock(10) { g.V().match( __.as('a').hasLabel('customer'), __.as('a').has("customerId", "ALFKI"), __.as('a').out('ordered').as('b'), __.as('b').values('shipCity').as('shipcity'), __.as('b').values('freight').as('freight'), __.as('b').values('requiredDate').as('reqDate'), __.as('b').values('shipName').as('shipName'), __.as('b').values('shipPostalCode').as('postalCode'), __.as('b').values('shippedDate').as('shipDate'), __.as('b').values('orderDate').as('orderDate'), __.as('b').values('shipAddress').as('shipAddress')).select('b','shipcity','freight','reqDate','shipName','postalCode','shipDate','orderDate','shipAddress').iterate()}"
 
 Gc5	"g.V().match( __.as('a').hasLabel('customer'), __.as('a').out('ordered').as('order')).select('a').groupCount()
 
