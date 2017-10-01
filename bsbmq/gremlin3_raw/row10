@@ -1,0 +1,1 @@
+g.V().has("price").has("OfferWebPage").valueMap("price","OfferWebPage").range(0,5)

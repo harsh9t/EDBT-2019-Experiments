@@ -1,0 +1,1 @@
+g.V().union(match(__.as('a').has("productTypeID",58),__.as('a').out().values("label_n").as("label_n")),match(__.as('a').has("productTypeID",102),__.as('a').out().values("label_n").as("label_n"))).select("label_n").limit(10)

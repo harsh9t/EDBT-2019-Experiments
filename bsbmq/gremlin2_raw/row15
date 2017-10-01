@@ -1,0 +1,1 @@
+s.V().has("type", "vendor").groupCount{it.country}.cap

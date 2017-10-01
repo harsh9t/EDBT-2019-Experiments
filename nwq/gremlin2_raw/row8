@@ -1,0 +1,1 @@
+s.V().has("labelV", "product").filter{it.unitsInStock !=0}.map()

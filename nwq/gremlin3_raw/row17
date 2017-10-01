@@ -1,0 +1,1 @@
+g.V().match( __.as("c").hasLabel("customer"), __.as("c").values("customerId").as("customerId"),__.as("c").out("ordered").count().as("orders")).select("customerId", "orders").limit(5)

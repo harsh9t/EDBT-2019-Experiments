@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has('productID',343).values('ProductPropertyTextual_1').as('b')).select('b')

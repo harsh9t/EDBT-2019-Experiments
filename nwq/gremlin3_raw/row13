@@ -1,0 +1,1 @@
+g.V().match( __.as('a').hasLabel('product').as('b')).valueMap('unitPrice').group().by().by(count()) 

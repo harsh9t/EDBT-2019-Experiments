@@ -1,0 +1,1 @@
+s.V().has("productID", 343).map("label_n")

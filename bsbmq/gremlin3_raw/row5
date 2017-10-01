@@ -1,0 +1,1 @@
+g.V().has("type","product").has("ProductPropertyNumeric_1",1).has("ProductPropertyNumeric_2",gt(100)).values("productID","ProductPropertyNumeric_1","ProductPropertyNumeric_2")

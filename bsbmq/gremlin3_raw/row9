@@ -1,0 +1,1 @@
+g.V().has("productID").has("label_n").valueMap("productID","label_n").range(0,5)

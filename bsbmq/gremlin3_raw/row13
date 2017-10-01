@@ -1,0 +1,1 @@
+g.V().values("ProductPropertyNumeric_4").groupCount()

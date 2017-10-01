@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has("type","review").as('b'), __.as('b').out().has("type","product").as('c')).select('c').dedup().count()

@@ -1,0 +1,1 @@
+s.V().has("type", "offer")[0..4].map("price", "OfferWebPage")

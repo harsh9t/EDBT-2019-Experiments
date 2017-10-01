@@ -1,0 +1,1 @@
+g.V().has("reviewerID",86).out().has("Rating_1").out().values("productID").group().by()

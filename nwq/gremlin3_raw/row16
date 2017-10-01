@@ -1,0 +1,1 @@
+g.V().match( __.as('a').out('inCategory').as('c'), __.as('c').has('name','Seafood'), __.as('a').values('unitPrice').as('stock')).select('stock').groupCount()

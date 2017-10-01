@@ -1,0 +1,1 @@
+g.V().match( __.as('a').hasLabel('product').as('b')).valueMap('name','unitsInStock').limit(5)

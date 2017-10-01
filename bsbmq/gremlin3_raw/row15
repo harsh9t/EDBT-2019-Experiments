@@ -1,0 +1,1 @@
+g.V().has("type","vendor").values("country").groupCount()

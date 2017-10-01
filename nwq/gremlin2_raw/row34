@@ -1,0 +1,1 @@
+s.V().has("labelV", "customer").as('a').in().has("labelV", "order").as('b').select()

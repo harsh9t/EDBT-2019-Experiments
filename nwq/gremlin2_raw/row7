@@ -1,0 +1,1 @@
+s.V().has("productName").filter{ it.unitPrice <= 10.00}.map("productName")

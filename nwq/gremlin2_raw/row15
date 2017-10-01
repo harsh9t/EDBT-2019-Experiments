@@ -1,0 +1,1 @@
+s.V().has("productName").groupCount{it.unitsInStock}.cap
