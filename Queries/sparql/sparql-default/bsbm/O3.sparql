@@ -3,4 +3,4 @@ select ?price where {
 
 ?a bsbm:price ?price.
 
-} ORDER BY (?price) LIMIT 1
+} ORDER BY (?price)
