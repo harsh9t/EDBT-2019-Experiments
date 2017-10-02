@@ -1,5 +1,5 @@
 PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
 select  ?propn4 (count(?propn4) as ?total) where {
 
-?a   bsbm:productPropertyNumeric2 ?propn4.
+?a   bsbm:productPropertyNumeric4 ?propn4.
 } GROUP BY(?propn4)
