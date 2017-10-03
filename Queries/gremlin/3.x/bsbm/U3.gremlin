@@ -1,1 +1,1 @@
-g.V().union(match(__.as('a').has("type","vendor").as('b'),__.as('b').has("country","RU")),match(__.as('a').has("type","vendor").as('b'),__.as('b').has("country","GB"))).select('b')
+g.V().union( __.has("type","vendor").has("country","RU").as('b'), __.has("type","vendor").has("country","GB").as('b')).select('b')
