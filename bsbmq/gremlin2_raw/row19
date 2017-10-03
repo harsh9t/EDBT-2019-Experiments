@@ -1,0 +1,1 @@
+s.V().has("type", "review").Rating_1.max()

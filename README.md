@@ -15,3 +15,19 @@ This includes datasets loading time, and Query execution time (cold and warm) fo
 We used scripts from the LITMUS Benchmark Suite [https://github.com/LITMUS-Benchmark-Suite/] for orchestrating the experiments on these DMSs under a variety of setting (mentioned in the paper)
 
 
+## Running the task
+### Generating the queries
+```sh
+python3 generator.py
+```
+
+### Running the queries
+
+* For BSBM queries
+```sh
+python3 runner.py -p2 /home/yashwant/Downloads/gremlin-groovy-2.6.0/bin/gremlin.sh -p3 /home/yashwant/Downloads/apache-tinkerpop-gremlin-console-3.2.4/bin/gremlin.sh -n 1 -d "tinker3,sparksee,tinker,sparksee" -ds bsbmq
+```
+* For NW queries
+```
+python3 runner.py -p2 /home/yashwant/Downloads/gremlin-groovy-2.6.0/bin/gremlin.sh -p3 /home/yashwant/Downloads/apache-tinkerpop-gremlin-console-3.2.4/bin/gremlin.sh -n 1 -d "tinker3,sparksee,tinker,sparksee" -ds nwq
+```

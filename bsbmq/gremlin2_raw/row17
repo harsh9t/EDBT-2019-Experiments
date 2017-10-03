@@ -1,0 +1,1 @@
+s.V().has("type", "product_type").has("productTypeID", 58).out().map("productID")

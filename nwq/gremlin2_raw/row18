@@ -1,0 +1,1 @@
+s.V().has("categoryName", "Beverages").inE().outV().groupCount{it.unitsInStock}.cap

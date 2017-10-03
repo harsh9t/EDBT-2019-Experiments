@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has('unitsOnOrder',0).as('b')).valueMap('name','unitsOnOrder').limit(5)

@@ -1,0 +1,1 @@
+g.V().match( __.as('a').has('unitsInStock',0).as('c')).valueMap('name','unitsInStock')

@@ -1,0 +1,1 @@
+s.V().has("type", "review").groupCount{it.Rating_3}.cap

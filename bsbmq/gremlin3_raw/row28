@@ -1,0 +1,1 @@
+g.V().has("type","review").out().has("type","product").values("productID").groupCount().order(local).by(values, decr).limit(local,10)

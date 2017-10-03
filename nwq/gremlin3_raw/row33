@@ -1,0 +1,1 @@
+g.V().has("customerId", "ALFKI").out('ordered').valueMap()

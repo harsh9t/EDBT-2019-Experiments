@@ -1,0 +1,1 @@
+g.V().hasLabel("product").order().by("unitPrice", incr).range(5, 10).valueMap("name", "unitPrice")
