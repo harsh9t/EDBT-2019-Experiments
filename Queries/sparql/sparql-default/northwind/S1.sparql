@@ -10,4 +10,4 @@ where {
 ?a <http://northwind.com/model/unitsInStock> ?stock.
 ?a <http://northwind.com/model/discontinued> ?discontinued.
 ?a <http://northwind.com/model/unitsOnOrder> ?unitOnOrder.
-} Limit 1
+} limit 1
