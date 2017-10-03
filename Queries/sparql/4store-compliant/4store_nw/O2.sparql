@@ -1,0 +1,1 @@
+select ?name ?unitPrice where {                  ?a <http://northwind.com/model/productName> ?name.                 ?a <http://northwind.com/model/unitPrice> ?unitPrice . } ORDER BY DESC(?unitPrice) LIMIT 5 

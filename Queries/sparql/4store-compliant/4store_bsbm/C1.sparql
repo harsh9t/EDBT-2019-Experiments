@@ -1,0 +1,1 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rev: <http://purl.org/stuff/rev#>  Select  (count  (distinct (?pid)) as ?totalprods) where   { ?review bsbm:reviewFor ?product .     ?product rdfs:label ?pid. } 

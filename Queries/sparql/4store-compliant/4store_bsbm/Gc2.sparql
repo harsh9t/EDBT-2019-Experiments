@@ -1,0 +1,1 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> prefix rev: <http://purl.org/stuff/rev#>  Select ?pid (COUNT (?review) as ?total)  where { ?review bsbm:reviewFor ?pid .  } GROUP BY (?pid) LIMIT 10 

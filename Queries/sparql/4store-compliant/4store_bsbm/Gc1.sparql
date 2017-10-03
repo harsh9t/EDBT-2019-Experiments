@@ -1,0 +1,1 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>  Select  ?country (COUNT (distinct ?vend) as ?total)  where { ?vendor bsbm:vendor ?vend. ?vend bsbm:country ?country  } GROUP BY (?country) 

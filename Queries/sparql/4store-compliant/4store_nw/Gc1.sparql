@@ -1,0 +1,1 @@
+select (count(?a) as ?total ) where {                  ?a <http://northwind.com/model/unitsInStock> ?unitsInStock . } GROUP BY (?unitsInStock) 

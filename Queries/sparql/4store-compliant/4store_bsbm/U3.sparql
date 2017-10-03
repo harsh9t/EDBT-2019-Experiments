@@ -1,0 +1,1 @@
+prefix bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/> prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>  Select distinct ?vend where {  { ?vendor bsbm:vendor ?vend . ?vend bsbm:country <http://downlode.org/rdf/iso-3166/countries#RU> . }  UNION  { ?vendor bsbm:vendor ?vend . ?vend bsbm:country <http://downlode.org/rdf/iso-3166/countries#GB> . }  } 

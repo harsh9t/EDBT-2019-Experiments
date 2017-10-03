@@ -1,0 +1,1 @@
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>  select ?a  where {  ?a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> bsbm:Product . ?a  bsbm:productPropertyNumeric1 ?propertyNumeric1 . FILTER (?propertyNumeric1 = 1) } 
