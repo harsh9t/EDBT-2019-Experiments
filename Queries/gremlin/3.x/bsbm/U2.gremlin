@@ -1,1 +1,1 @@
-g.V().union(match(__.as('a').has("productID",343).as('b'),__.as('b').values("label_n").as("label_n"),__.as('b').values("ProductPropertyNumeric_1").as('propertyNumeric1')),match(__.as('a').has("productID",350).as('b'),__.as('b').values("label_n").as("label_n"),__.as('b').values("ProductPropertyNumeric_1").as('propertyNumeric1'))).select("label_n","propertyNumeric1")
+g.V().union( __.has("productID",343).values("label_n","ProductPropertyNumeric_1").as("label_n"), __.has("productID",350).values("label_n","ProductPropertyNumeric_1").as("label_n")).select('label_n')
