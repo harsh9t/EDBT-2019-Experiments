@@ -11,5 +11,8 @@ class BSBM1M {
     newGraph.io(IoCore.graphml()).readGraph(path)
     newGraph.createIndex('productID', Vertex.class)
     newGraph.createIndex('label_n', Vertex.class)
+    newGraph.createIndex('type', Vertex.class)
+    newGraph.createIndex('productTypeID', Vertex.class)
+    newGraph.createIndex('reviewerID', Vertex.class)
   }
 }
