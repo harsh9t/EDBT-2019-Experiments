@@ -1,3 +1,3 @@
 select ?customer (count(?orderid) as ?total) where
 { ?orderid <http://northwind.com/model/customer> ?customer .
-?orderid <http://northwind.com/model/freight> ?freight } LIMIT 5
+?orderid <http://northwind.com/model/freight> ?freight } GROUP BY (?customer) LIMIT 5
