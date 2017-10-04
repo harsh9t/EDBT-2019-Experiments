@@ -1,1 +1,18 @@
-select ?fname ?lname ?phone where { ?x <http://northwind.com/model/customerID> "ALFKI". ?x <http://northwind.com/model/firstName> ?fanme. ?x <http://northwind.com/model/phone> ?phone. } UNION { ?x <http://northwind.com/model/customerID> "ANTON" . ?x <http://northwind.com/model/firstName> ?fanme. ?x <http://northwind.com/model/phone> ?phone. } }
+select ?fname ?phone where {
+
+   
+     ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Customer> .
+     ?x <http://www.w3.org/2000/01/rdf-schema#label> "ALFKI" .
+     ?x  <http://northwind.com/model/firstName> ?fname.
+     ?x <http://northwind.com/model/phone> ?phone.
+   }
+
+UNION
+
+  {
+     ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://northwind.com/model/Customer> .
+     ?x <http://www.w3.org/2000/01/rdf-schema#label> "ANTON" .
+     ?x  <http://northwind.com/model/firstName> ?fname.
+     ?x <http://northwind.com/model/phone> ?phone.
+  }
+}
