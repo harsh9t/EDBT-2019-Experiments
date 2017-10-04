@@ -1,17 +1,1 @@
-U3
-select ?fname ?lname ?phone where {
-
-
-     ?x <http://northwind.com/model/customerID> "ALFKI".
-     ?x  <http://northwind.com/model/firstName> ?fanme.
-     ?x <http://northwind.com/model/phone> ?phone.
-   }
-
-UNION
-
-  {
-     ?x <http://northwind.com/model/customerID> "ANTON"  .
-      ?x  <http://northwind.com/model/firstName> ?fanme.
-     ?x <http://northwind.com/model/phone> ?phone.
-  }
-}
+select ?fname ?lname ?phone where { ?x <http://northwind.com/model/customerID> "ALFKI". ?x <http://northwind.com/model/firstName> ?fanme. ?x <http://northwind.com/model/phone> ?phone. } UNION { ?x <http://northwind.com/model/customerID> "ANTON" . ?x <http://northwind.com/model/firstName> ?fanme. ?x <http://northwind.com/model/phone> ?phone. } }
