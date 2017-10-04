@@ -1,4 +1,4 @@
-select ?stock (count(?a) as ?total)
+select ?unitsInStock (count(?a) as ?total)
   where {
                             ?a <http://northwind.com/model/unitsInStock> ?unitsInStock .
   } GROUP BY(?unitsInStock) ORDER BY (?unitsInStock) Limit 3
