@@ -1,6 +1,7 @@
  import com.tinkerpop.blueprints.impls.sparksee.*;
-s = new /home/yashwant/edb/data/northwind.graphml("/tmp/883105203");
-s.loadGraphML("/home/yashwant/edb/data/northwind.graphml");
+s = new TinkerGraph("/tmp/587109376");
+s.loadGraphML("/srv/Harsh/Yashwant/edbt18/EDBT-2018-Experiments/data/northwind.graphml");
 q = System.currentTimeMillis();
 tt = s.V().has("productID").order{it.a.unitPrice <=> it.b.unitPrice}[0..5].map("productName", "unitPrice")
 println (System.currentTimeMillis() - q)
+System.exit(0);
