@@ -77,3 +77,4 @@ if __name__ == "__main__":
 			for i in range(int(args["runs"])):
 				clear_tmp()
 				run_ind_query("./" + args["gremlin3_path"].strip().split("/")[-1], query, oscwd + "/logs/%s/tinker3/%s" % (args["dataset"], generator.get_file_name(query)))	
+	print("Successfully Completed")
