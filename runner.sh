@@ -1,0 +1,2 @@
+python3 runner.py -p2 /srv/Harsh/Yashwant/gremlin-groovy-2.6.0/bin/gremlin.sh -p3 /srv/Harsh/Yashwant/apache-tinkerpop-gremlin-console-3.2.4/bin/gremlin.sh -n 10 -d "tinker3,sparksee,neo4j,tinkergraph" -ds nwq
+python3 runner.py -p2 /srv/Harsh/Yashwant/gremlin-groovy-2.6.0/bin/gremlin.sh -p3 /srv/Harsh/Yashwant/apache-tinkerpop-gremlin-console-3.2.4/bin/gremlin.sh -n 10 -d "tinker3,sparksee,neo4j,tinkergraph" -ds bsbmq
