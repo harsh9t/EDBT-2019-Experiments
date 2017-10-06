@@ -8,8 +8,8 @@ vmap = {
 }
 
 dmap = {
-	'nwq' : '/home/yashwant/edb/data/northwind.graphml',
-	'bsbmq' : '/home/yashwant/edb/data/bsbm.graphml'
+	'nwq' : '/srv/Harsh/Yashwant/edbt18/EDBT-2018-Experiments/data/northwind.graphml',
+	'bsbmq' : '/srv/Harsh/Yashwant/edbt18/EDBT-2018-Experiments/data/bsbm.graphml'
 }
 
 
@@ -21,36 +21,47 @@ def clear_folder(path):
 	for each in all_files:
 		os.remove(each)
 
-def create_query(query, graph, dataset, path):
+def create_query(query, graph, dataset, path, index = None):
+	indexing_syn = ""
+	if index is not None:
+		if graph == "sparksee":
+			for each in index:
+				indexing_syn += 's.createKeyIndex("%s", Vertex.class)\n' %(each);
+		else:
+			for each in index:
+				indexing_syn += 's.createIndex("%s", Vertex.class)\n' %(each);
+
 	f = open(path + ".groovy" , "w")
 	f.write(""" import com.tinkerpop.blueprints.impls.sparksee.*;
 s = new %s("/tmp/%s");
 s.loadGraphML("%s");
+%s
 q = System.currentTimeMillis();
 tt = %s
 println (System.currentTimeMillis() - q)
-""" %(dmap[dataset], str(random.randint(0,1000000000)), dmap[dataset], query))
+System.exit(0);
+""" %(vmap[graph], str(random.randint(0,1000000000)), dmap[dataset], indexing_syn, query))
 	f.close()
 
-def create_query_for_tinker3(query, dataset, path):
+def create_query_for_tinker3(query, dataset, path, index = None):
+	indexing_syn = ""
+	if index is not None:
+		for each in index:
+			indexing_syn += 'x.createIndex("%s", Vertex.class)\n' %(each);
+
 	f = open(path + ".groovy" , "w")
-	"""t = System.currentTimeMillis()
-x = TinkerGraph.open();
-s = System.currentTimeMillis()
-x.io(graphml()).readGraph(args[1])
-println System.currentTimeMillis() - s
-x.shutdown()"""
 	f.write("""
 x = TinkerGraph.open();
 x.io(gryo()).readGraph("%s");
+%s
 g = x.traversal();
 q = System.currentTimeMillis();
 tt = %s
 println (System.currentTimeMillis() - q)
-""" %("/home/yashwant/edb/data/northwind.kryo", query))
+""" %("/srv/Harsh/Yashwant/edbt18/EDBT-2018-Experiments/data/northwind.kryo", indexing_syn, query))
 	f.close()
 
-def create_queries(dataset_location):
+def create_queries(dataset_location, index = None):
 	all_queries = glob.glob(dataset_location+"/gremlin2_raw/*")
 	for each in ['neo4j', 'sparksee', 'tinkergraph']:
 		try:
@@ -58,19 +69,19 @@ def create_queries(dataset_location):
 		except Exception as e:
 			clear_folder(dataset_location + '/%s' % (each))
 		for query in all_queries:
-			create_query(open(query).read(), each, dataset_location.strip().split("/")[-1], dataset_location + '/%s/%s' % (each, get_file_name(query)))
+			create_query(open(query).read(), each, dataset_location.strip().split("/")[-1], dataset_location + '/%s/%s' % (each, get_file_name(query)), index)
 	
-def create_queries_3(dataset_location):
+def create_queries_3(dataset_location, index = None):
 	try:
 		os.mkdir(dataset_location + '/tinker3')
 	except Exception as e:
 		clear_folder(dataset_location + '/tinker3')
 	tinker3_queries = glob.glob(dataset_location+"/gremlin3_raw/*")
 	for query in tinker3_queries:
-		create_query_for_tinker3(open(query).read(), dataset_location.strip().split("/")[-1], dataset_location + '/tinker3/%s' % (get_file_name(query)));
+		create_query_for_tinker3(open(query).read(), dataset_location.strip().split("/")[-1], dataset_location + '/tinker3/%s' % (get_file_name(query)), index);
 
 if __name__ == "__main__":
-	create_queries(os.getcwd() + "/nwq")
-	create_queries(os.getcwd() + "/bsbmq")
-	create_queries_3(os.getcwd() + "/nwq")
-	create_queries_3(os.getcwd() + "/bsbmq")	
+	create_queries(os.getcwd() + "/nwq", ['name', 'customerId', 'unitPrice', 'unitsInStock', 'unitsOnOrder'])
+	create_queries(os.getcwd() + "/bsbmq", ["productID", "label_n", "type", "productTypeID", "reviewerID"])
+	create_queries_3(os.getcwd() + "/nwq", ['name', 'customerId', 'unitPrice', 'unitsInStock', 'unitsOnOrder'])
+	create_queries_3(os.getcwd() + "/bsbmq", ["productID", "label_n", "type", "productTypeID", "reviewerID"])	
