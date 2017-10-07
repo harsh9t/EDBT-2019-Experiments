@@ -1,20 +1,110 @@
-22:02:21.049 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-48
-22:02:24.325 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-49
-22:02:27.804 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-50
-22:02:31.495 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-47
-22:02:34.993 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+20:19:26.380 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+43
+1
+1
+0
+1
+0
+1
+0
+1
+0
+20:19:31.345 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
 55
-22:02:38.450 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-44
-22:02:41.823 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-58
-22:02:45.321 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-47
-22:02:48.798 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+0
+0
+1
+0
+1
+0
+0
+1
+0
+20:19:36.168 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+29
+1
+0
+0
+0
+1
+0
+0
+1
+0
+20:19:41.082 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+48
+1
+0
+0
+0
+0
+1
+0
+0
+1
+20:19:46.202 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+52
+0
+1
+0
+1
+0
+1
+0
+0
+0
+20:19:51.465 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+66
+0
+1
+0
+1
+0
+0
+0
+0
+1
+20:19:56.587 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+31
+1
+0
+0
+1
+0
+0
+0
+1
+0
+20:20:01.566 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
 51
-22:02:52.412 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
-46
+1
+0
+0
+0
+0
+0
+1
+0
+1
+20:20:06.577 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+60
+1
+0
+0
+1
+0
+1
+0
+0
+0
+20:20:11.349 [main] WARN  o.neo4j.kernel.EmbeddedGraphDatabase - You are using an unsupported version of the Java runtime. Please use Oracle(R) Java(TM) Runtime Environment 7.
+67
+1
+0
+0
+1
+0
+0
+0
+0
+1

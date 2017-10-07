@@ -1,7 +1,15 @@
  import com.tinkerpop.blueprints.impls.sparksee.*;
-s = new SparkseeGraph("/tmp/99246362");
+s = new SparkseeGraph("/tmp/6095394");
 s.loadGraphML("/srv/Harsh/Yashwant/edbt18/EDBT-2018-Experiments/data/bsbm.graphml");
-q = System.currentTimeMillis();
-tt = s.V().has("type", "product").has("productID", 343).as('a').both().filter{it.type == "offer" || it.type == "producer"}map().as('b').select()
-println (System.currentTimeMillis() - q)
+s.createKeyIndex("productID", Vertex.class)
+s.createKeyIndex("label_n", Vertex.class)
+s.createKeyIndex("type", Vertex.class)
+s.createKeyIndex("productTypeID", Vertex.class)
+s.createKeyIndex("reviewerID", Vertex.class)
+
+for(i in 1..10) {
+	q = System.currentTimeMillis();
+	tt = s.V().has("type", "product").has("productID", 343).as('a').both().filter{it.type == "offer" || it.type == "producer"}map().as('b').select()
+	println (System.currentTimeMillis() - q)
+}
 System.exit(0);
