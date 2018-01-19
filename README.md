@@ -1,5 +1,5 @@
 # SWJ-2018-Experiments
-The home of SWJ 2018 SPARQL - Gremlin submission experiments
+The home of SWJ 2018 Gremlinator submission experiments
 
 ## Data
 This repo consists of all the data used for the experiments. (i.e. both files of both the datasets [northwind, bsbm-1M], rdf and graph files plus their groovy scripts)
