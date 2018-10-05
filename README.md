@@ -1,5 +1,5 @@
-# SWJ-2018-Experiments
-The home of SWJ 2018 Gremlinator submission experiments
+# GREMLINATOR-EDBT-2019-Experiments
+The base repository of Gremlinator experiments for EDBT 2019
 
 ## Data
 This repo consists of all the data used for the experiments. (i.e. both files of both the datasets [northwind, bsbm-1M], rdf and graph files plus their groovy scripts)
